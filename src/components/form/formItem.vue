@@ -31,7 +31,7 @@ export default {
   },
   // 组件销毁前，将实例从 Form 的缓存中移除
   beforeDestroy () {
-    this.dispatch('iForm', 'on-form-item-remove', this);
+    this.dispatch('iForm', 'form-remove', this);
   },
   computed: {
     fieldValue() {
@@ -54,7 +54,7 @@ export default {
       formRules = formRules ? formRules[this.prop] : [];
       return formRules;
     },
-    // 所以过滤出符合要求的 rule 规则
+    // 过滤出符合要求的 rule 规则
     getFilteredRule (trigger) {
       const rules = this.getRules();
       return rules.filter(rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1);
@@ -85,7 +85,7 @@ export default {
     },
     onFieldChange() {
       this.validate('change');
-    },
+    }
   }
 }
 </script>
