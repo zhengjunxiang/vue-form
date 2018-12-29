@@ -41,7 +41,11 @@ export default {
   methods: {
     setRules() {
       let rules = this.getRules();
-      if (rules.length) rules.every(rule => this.isRequired = rule.required);
+      if (rules.length) {
+        rules.forEach(rule => {
+          if (rule.required !== undefined) this.isRequired = rule.required
+        });
+      }
       this.$on('form-blur', this.onFieldBlur);
       this.$on('form-change', this.onFieldChange);
     },
@@ -73,7 +77,6 @@ export default {
       })
     },
     resetField () {
-      this.validateState = '';
       this.message = '';
       this.form.model[this.prop] = this.initialValue;
     },

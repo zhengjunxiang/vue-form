@@ -3,10 +3,10 @@
     <h3>Form (校验表单)</h3>
     <iForm ref="form" :model="formData" :rules="rules">
       <iFormItem label="名称：" prop="name">
-        <iInput v-model="formData.name" type="password" ></iInput>
+        <iInput v-model="formData.name"></iInput>
       </iFormItem>
       <iFormItem label="邮箱：" prop="mail">
-        <iInput v-model="formData.mail" type="password"></iInput>
+        <iInput v-model="formData.mail"></iInput>
       </iFormItem>
       <button @click="handleSubmit">提交</button>
       <button @click="handleReset">重置</button>

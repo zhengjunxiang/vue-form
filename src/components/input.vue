@@ -12,6 +12,11 @@ export default {
     type: { type: String, default: 'text'},
     value: { type: String, default: ''}
   },
+  watch: {
+    value(value) {
+      this.currentValue = value
+    }
+  },
   data() {
     return { currentValue: this.value, id: this.label }
   },
